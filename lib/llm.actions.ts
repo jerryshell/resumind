@@ -5,7 +5,7 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
   baseURL: process.env.NEXT_LLM_BASE_URL || "http://localhost:1234/v1",
-  apiKey: process.env.NEXT_LLM_API_KEY,
+  apiKey: process.env.NEXT_LLM_API_KEY || "",
 });
 
 export async function feedback(prompt: string) {
