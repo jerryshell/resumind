@@ -1,42 +1,41 @@
-# Resumind - AI 简历分析
+# Resumind - AI 简历智能分析平台
 
-_Resumind_ 是一个使用 Next.js + Tailwind CSS 构建的 AI 智能简历分析系统。
+_Resumind_ 是一个现代化的 AI 简历分析平台，利用大型语言模型（LLM）技术智能评估简历与职位描述的匹配程度，为求职者提供 ATS 评分以及专业、个性化的改进建议。
 
-使用 OpenAI 兼容接口，本地优先，隐私保护，可以自由选择 LLM 供应，无需再担心个人信息泄漏。
+## ✨ 核心优势
 
-通过智能 AI 评估简历的匹配程度，并且为每个职位定制专属反馈与 ATS 评分。
+| 功能特性                     | 用户价值                                     |
+| ---------------------------- | -------------------------------------------- |
+| **🔒 隐私优先架构**          | 所有数据仅在本地存储，无需再担心个人信息泄漏 |
+| **🎯 精准匹配分析**          | 深度解析简历与职位描述的契合度，提供量化评分 |
+| **💡 智能优化建议**          | 针对每个职位生成定制化的简历改进方案         |
+| **🧩 现代响应式设计**        | 简洁美观的 UI，响应式布局适配所有设备        |
+| **🔄 OpenAI-Compatible API** | 兼容任何 OpenAI API 标准的本地/云端 LLM 模型 |
 
-所有功能都集成在简洁可复用的 UI 界面中。
-
-## 零部署在线体验
+## 🚀 在线体验
 
 [https://resumind-taupe.vercel.app](https://resumind-taupe.vercel.app)
 
-体验 Demo 使用的套餐有成本上限，无法稳定提供服务。
+⚠️ Demo 实例受成本限制，目前无法稳定提供服务。
 
-如果这个项目对你有用，欢迎[为我充电](https://space.bilibili.com/281356255)！
+如果这个项目对你有价值，欢迎[为我充电](https://space.bilibili.com/281356255)！
 
-## 技术栈
+## 🛠️ 技术栈
 
-- **[React](https://react.dev/)** 是一个流行的开源 JavaScript 库，通过可复用组件和虚拟 DOM 构建用户界面，能高效创建动态单页应用和原生应用。
-- **[Next.js](https://nextjs.org/)** 是基于 React 的服务端渲染框架，提供内置路由、API 端点、静态站点生成和无缝部署功能，为现代 Web 应用优化性能与 SEO。
-- **[Tailwind CSS](https://tailwindcss.com/)** 是实用优先的 CSS 框架，开发者可直接在 HTML 中使用底层工具类设计定制化界面，从而简化设计流程。
-- **[TypeScript](https://www.typescriptlang.org/)** 是 JavaScript 的超集，通过静态类型增强开发工具支持、代码质量和错误检测能力，特别适合构建大型应用。
+- Next.js
+- Tailwind CSS
+- TypeScript
 
-## 功能
+## ⚡ 快速开始
 
-- **AI 简历匹配**：提交职位描述，即可获取针对每份简历定制的 ATS 评分与专属反馈。
-- **本地优先与隐私保护**：所有数据仅在本地存储，无需再担心个人信息泄漏。
-- **可复用的组件**：采用简洁一致的组件构建，通过可复用组件和模块化代码打造美观易维护的界面。
-- **现代响应式 UI/UX 设计**：基于 Tailwind CSS 构建的清爽响应式界面，在所有设备上提供流畅用户体验。
-
-## 快速开始
-
-按照以下步骤在您的本地机器上设置项目。
+按照以下步骤在本地机器上设置项目：
 
 **前置条件**
 
-确保本地机器上已运行具有 OpenAI-Compatible API 的大型语言模型，如使用 [LM Studio](https://lmstudio.ai/)、[Ollama](https://ollama.com/) 等工具。
+本地运行支持 OpenAI API 的 LLM（推荐选择之一）：
+
+- [LM Studio](https://lmstudio.ai/)（Windows/macOS 图形界面，Vulkan Runtime 对 AMD 显卡用户友好）
+- [Ollama](https://ollama.com/)（跨平台命令行）
 
 **克隆代码仓库**
 
@@ -57,33 +56,48 @@ npm install
 
 在项目根目录下创建一个 `.env.local` 文件，并添加以下内容：
 
-```
-# OpenAI 兼容接口
+```env
+# LLM 服务地址，下面以 LM Studio 默认配置为例
 NEXT_LLM_BASE_URL="http://localhost:1234/v1"
-# 接口密钥
-NEXT_LLM_API_KEY=""
-# 模型名称，参数太小的模型可能无法得到良好的结果，建议 8b 及以上
+
+# 模型名称，参数量太小的模型可能无法得到良好的结果，建议 8b 及以上
 NEXT_LLM_MODEL="deepseek/deepseek-r1-0528-qwen3-8b"
+
+# API 密钥，本地运行通常留空
+NEXT_LLM_API_KEY=""
 ```
 
-请根据自己的环境进行修改。
-
-**运行项目**
+**启动应用**
 
 ```bash
 npm run dev
 ```
 
-在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看项目。
+访问 [http://localhost:3000](http://localhost:3000) 开始使用！
 
-## 项目截图
+## 📸 项目截图
 
-<img src="./readme.img/1.jpg" width="720" alt="screenshot 1"/>
+<div align="center">
+  <img src="./readme.img/1.jpg" width="80%" alt="项目主界面">
+  <p><em>项目主界面 - 清晰展示目标职位和匹配评分</em></p>
 
-<img src="./readme.img/2.jpg" width="720" alt="screenshot 2"/>
+  <img src="./readme.img/2.jpg" width="80%" alt="简历提交界面">
+  <p><em>简历提交界面 - 充分考虑目标职位的要求</em></p>
 
-<img src="./readme.img/3.jpg" width="720" alt="screenshot 3"/>
+  <img src="./readme.img/3.jpg" width="80%" alt="详细分析报告">
+  <p><em>详细分析报告 - 分项评估简历各维度表现</em></p>
+</div>
 
-## 开源协议
+## 🤝 贡献指南
 
-[GNU Affero General Public License v3.0](LICENSE)
+欢迎通过 Issue 提交功能建议或 Bug 报告，Pull Request 流程：
+
+1. Fork 本项目
+2. 创建特性分支 (`git checkout -b feature/your-feature`)
+3. 提交更改 (`git commit -am 'Add your feature'`)
+4. 推送分支 (`git push origin feature/your-feature`)
+5. 创建 Pull Request
+
+## 📜 开源协议
+
+本项目采用 [GNU Affero General Public License v3.0](LICENSE) 开源协议
