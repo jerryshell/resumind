@@ -63,9 +63,7 @@ const UploadPage = () => {
     }
 
     setStatusText("提取文字...");
-    const pdfText = await convertPdfToText(file).catch((e) => {
-      console.error(e);
-    });
+    const pdfText = await convertPdfToText(file).catch(console.error);
     if (!pdfText) {
       setStatusText("错误：Failed to convert PDF to text");
       return;
@@ -74,9 +72,7 @@ const UploadPage = () => {
     const prompt = buildPrompt(jobTitle, jobDescription, pdfText);
 
     setStatusText("分析中，请耐心等待...");
-    const feedbackText = await feedback(prompt).catch((e) => {
-      console.error(e);
-    });
+    const feedbackText = await feedback(prompt).catch(console.error);
     if (!feedbackText) {
       setStatusText("错误：Failed to analyze resume");
       return;
