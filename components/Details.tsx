@@ -4,6 +4,7 @@ import {
   AccordionHeader,
   AccordionItem,
 } from "./Accordion";
+import { Feedback } from "@/lib/schema";
 import Image from "next/image";
 
 const ScoreBadge = ({ score }: { score: number }) => {
@@ -102,67 +103,53 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
   return (
     <div className="flex flex-col gap-4 w-full">
       <Accordion>
-        {feedback.toneAndStyle &&
-          feedback.toneAndStyle.score &&
-          feedback.toneAndStyle.tips && (
-            <AccordionItem>
-              <AccordionHeader itemId="tone-style">
-                <CategoryHeader
-                  title="语气"
-                  categoryScore={feedback.toneAndStyle.score}
-                />
-              </AccordionHeader>
-              <AccordionContent itemId="tone-style">
-                <CategoryContent tips={feedback.toneAndStyle.tips} />
-              </AccordionContent>
-            </AccordionItem>
-          )}
+        <AccordionItem>
+          <AccordionHeader itemId="tone-style">
+            <CategoryHeader
+              title="语气"
+              categoryScore={feedback.toneAndStyle.score}
+            />
+          </AccordionHeader>
+          <AccordionContent itemId="tone-style">
+            <CategoryContent tips={feedback.toneAndStyle.tips} />
+          </AccordionContent>
+        </AccordionItem>
 
-        {feedback.content &&
-          feedback.content.score &&
-          feedback.content.tips && (
-            <AccordionItem>
-              <AccordionHeader itemId="content">
-                <CategoryHeader
-                  title="内容"
-                  categoryScore={feedback.content.score}
-                />
-              </AccordionHeader>
-              <AccordionContent itemId="content">
-                <CategoryContent tips={feedback.content.tips} />
-              </AccordionContent>
-            </AccordionItem>
-          )}
+        <AccordionItem>
+          <AccordionHeader itemId="content">
+            <CategoryHeader
+              title="内容"
+              categoryScore={feedback.content.score}
+            />
+          </AccordionHeader>
+          <AccordionContent itemId="content">
+            <CategoryContent tips={feedback.content.tips} />
+          </AccordionContent>
+        </AccordionItem>
 
-        {feedback.structure &&
-          feedback.structure.score &&
-          feedback.structure.tips && (
-            <AccordionItem>
-              <AccordionHeader itemId="structure">
-                <CategoryHeader
-                  title="结构"
-                  categoryScore={feedback.structure.score}
-                />
-              </AccordionHeader>
-              <AccordionContent itemId="structure">
-                <CategoryContent tips={feedback.structure.tips} />
-              </AccordionContent>
-            </AccordionItem>
-          )}
+        <AccordionItem>
+          <AccordionHeader itemId="structure">
+            <CategoryHeader
+              title="结构"
+              categoryScore={feedback.structure.score}
+            />
+          </AccordionHeader>
+          <AccordionContent itemId="structure">
+            <CategoryContent tips={feedback.structure.tips} />
+          </AccordionContent>
+        </AccordionItem>
 
-        {feedback.skills && feedback.skills.score && feedback.skills.tips && (
-          <AccordionItem>
-            <AccordionHeader itemId="skills">
-              <CategoryHeader
-                title="技能"
-                categoryScore={feedback.skills.score}
-              />
-            </AccordionHeader>
-            <AccordionContent itemId="skills">
-              <CategoryContent tips={feedback.skills.tips} />
-            </AccordionContent>
-          </AccordionItem>
-        )}
+        <AccordionItem>
+          <AccordionHeader itemId="skills">
+            <CategoryHeader
+              title="技能"
+              categoryScore={feedback.skills.score}
+            />
+          </AccordionHeader>
+          <AccordionContent itemId="skills">
+            <CategoryContent tips={feedback.skills.tips} />
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </div>
   );

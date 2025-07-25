@@ -1,6 +1,7 @@
 "use server";
 
-import { feedbackJsonSchema, systemPrompt } from "./utils";
+import { FeedbackJsonSchema } from "./schema";
+import { systemPrompt } from "./utils";
 import OpenAI from "openai";
 
 const client = new OpenAI({
@@ -9,7 +10,7 @@ const client = new OpenAI({
 });
 
 export async function feedback(prompt: string) {
-  console.log({ prompt });
+  console.log({ systemPrompt, prompt });
 
   const completion = await client.chat.completions.parse({
     model: process.env.NEXT_LLM_MODEL || "deepseek/deepseek-r1-0528-qwen3-8b",
@@ -20,7 +21,12 @@ export async function feedback(prompt: string) {
     stream: false,
     response_format: {
       type: "json_schema",
-      json_schema: feedbackJsonSchema,
+      json_schema: {
+        name: "feedback",
+        description: "resume feedback",
+        strict: true,
+        schema: FeedbackJsonSchema,
+      },
     },
   });
   console.log({ completion });
