@@ -1,4 +1,5 @@
 import ScoreCircle from "./ScoreCircle";
+import { Resume } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 

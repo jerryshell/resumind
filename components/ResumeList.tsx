@@ -1,6 +1,7 @@
 "use client";
 
 import ResumeCard from "./ResumeCard";
+import { Resume } from "@/lib/schema";
 import {
   getResumesFromLocalStorage,
   setResumesToLocalStorage,

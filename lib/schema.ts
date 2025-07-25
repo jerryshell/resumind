@@ -98,3 +98,12 @@ export const FeedbackSchema = z.object({
 export const FeedbackJsonSchema = z.toJSONSchema(FeedbackSchema);
 
 export type Feedback = z.infer<typeof FeedbackSchema>;
+
+export type Resume = {
+  id: string;
+  companyName: string;
+  jobTitle: string;
+  jobDescription: string;
+  imagePath: string;
+  feedback: Feedback;
+};

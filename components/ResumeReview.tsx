@@ -3,6 +3,7 @@
 import Ats from "./Ats";
 import Details from "./Details";
 import Summary from "./Summary";
+import { Resume } from "@/lib/schema";
 import { getResumesFromLocalStorage } from "@/lib/utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";

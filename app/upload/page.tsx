@@ -3,6 +3,7 @@
 import FileUploader from "@/components/FileUploader";
 import { feedback } from "@/lib/llm.actions";
 import { convertPdfToImage, convertPdfToText } from "@/lib/pdfUtils";
+import { Resume } from "@/lib/schema";
 import {
   buildPrompt,
   getResumesFromLocalStorage,

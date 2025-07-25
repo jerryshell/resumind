@@ -1,4 +1,4 @@
-import { FeedbackJsonSchema } from "./schema";
+import { FeedbackJsonSchema, Resume } from "./schema";
 
 export const formatSize = (bytes: number): string => {
   if (bytes === 0) {
