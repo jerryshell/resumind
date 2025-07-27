@@ -5,7 +5,7 @@ const FeedbackItemSchema = z.object({
   tips: z
     .array(
       z.object({
-        type: z.enum(["good", "improve"]),
+        type: z.literal(["good", "improve"]),
         tip: z.string().meta({ description: "为详细解释起一个简短的标题" }),
         explanation: z.string().meta({ description: "详细解释并提供改进方法" }),
       }),
