@@ -1,6 +1,6 @@
 "use client";
 
-import { TextItem } from "pdfjs-dist/types/src/display/api";
+import { RenderParameters, TextItem } from "pdfjs-dist/types/src/display/api";
 
 type PDFJSStatic = typeof import("pdfjs-dist");
 
@@ -70,7 +70,8 @@ export async function convertPdfToImage(file: File): Promise<PdfToImageResult> {
       context.imageSmoothingQuality = "high";
     }
 
-    await page.render({ canvasContext: context!, viewport }).promise;
+    await page.render({ canvasContext: context!, viewport } as RenderParameters)
+      .promise;
 
     return new Promise((resolve) => {
       canvas.toBlob(
