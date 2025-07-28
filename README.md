@@ -34,7 +34,7 @@ _Resumind_ 是一个现代化的 AI 简历分析平台，利用大型语言模�
 
 本地运行支持 OpenAI API 的 LLM（推荐选择之一）：
 
-- [LM Studio](https://lmstudio.ai/)（Windows/macOS 图形界面，Vulkan Runtime 对 AMD 显卡用户友好）
+- [Jan](https://jan.ai/)（跨平台图形界面，Vulkan Runtime 对 AMD 显卡用户友好）
 - [Ollama](https://ollama.com/)（跨平台命令行）
 
 **克隆代码仓库**
@@ -59,14 +59,14 @@ _为什么要使用 `--legacy-peer-deps`？这是 OpenAI 上游解决 Zod 4 冲�
 在项目根目录下创建一个 `.env.local` 文件，并添加以下内容：
 
 ```env
-# LLM 服务地址，下面以 LM Studio 默认配置为例
-NEXT_LLM_BASE_URL="http://localhost:1234/v1"
+# LLM 服务地址，以 Jan 为例
+NEXT_LLM_BASE_URL="http://localhost:1337/v1"
+
+# API 密钥
+NEXT_LLM_API_KEY=""
 
 # 模型名称，参数量太小的模型可能无法得到良好的结果，建议 8b 及以上
-NEXT_LLM_MODEL="deepseek/deepseek-r1-0528-qwen3-8b"
-
-# API 密钥，本地运行通常留空
-NEXT_LLM_API_KEY=""
+NEXT_LLM_MODEL="Menlo:Jan-nano-128k-gguf:jan-nano-128k-iQ4_XS.gguf"
 ```
 
 **启动应用**
