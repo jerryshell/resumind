@@ -28,7 +28,7 @@ const ResumeReview = ({ id }: { id: string }) => {
     <main className="min-h-screen pt-0">
       <div className="flex flex-row w-full max-lg:flex-col-reverse">
         <section className="flex w-1/2 flex-col gap-8 px-8 py-6 max-lg:w-full h-[100vh] sticky top-0 items-center justify-center">
-          <div className="animate-in fade-in duration-1000 from-light-blue-100 to-light-blue-200 rounded-2xl bg-gradient-to-b p-4 max-sm:m-0 h-[90%] max-wxl:h-fit w-fit">
+          <div className="from-light-blue-100 to-light-blue-200 rounded-2xl bg-gradient-to-b p-4 max-sm:m-0 h-[90%] max-wxl:h-fit w-fit">
             {resume && (
               <a
                 href={resume.imagePath}
@@ -46,12 +46,13 @@ const ResumeReview = ({ id }: { id: string }) => {
             )}
           </div>
         </section>
+
         <section className="flex w-1/2 flex-col gap-8 px-8 py-6 max-lg:w-full">
           <h2 className="text-dark-200 max-sm:text-xl text-4xl font-bold">
             简历分析详情
           </h2>
           {resume ? (
-            <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
+            <div className="flex flex-col gap-8">
               <Summary feedback={resume.feedback} />
               {resume.feedback.Ats &&
                 resume.feedback.Ats.score &&

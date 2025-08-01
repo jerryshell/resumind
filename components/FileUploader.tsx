@@ -3,7 +3,8 @@ import Image from "next/image";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-const maxFileSize = 20 * 1024 * 1024; // 20 MB
+// 20 MB
+const maxFileSize = 20 * 1024 * 1024;
 
 interface FileUploaderProps {
   onFileSelect: (file: File | null) => void;

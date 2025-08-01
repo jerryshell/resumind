@@ -132,7 +132,7 @@ const UploadPage = () => {
                 公司名称
               </label>
               <input
-                className="w-full rounded-2xl bg-white p-4 shadow-[inset_0_0_12px_0_rgba(36,99,235,0.2)]  focus:outline-none"
+                className="w-full rounded-2xl bg-white p-4 shadow-[inset_0_0_12px_0_rgba(36,99,235,0.2)] focus:outline-none"
                 type="text"
                 name="company-name"
                 placeholder="Goole / Apple / Microsoft"
@@ -144,7 +144,7 @@ const UploadPage = () => {
                 职位名称
               </label>
               <input
-                className="w-full rounded-2xl bg-white p-4 shadow-[inset_0_0_12px_0_rgba(36,99,235,0.2)]  focus:outline-none"
+                className="w-full rounded-2xl bg-white p-4 shadow-[inset_0_0_12px_0_rgba(36,99,235,0.2)] focus:outline-none"
                 type="text"
                 name="job-title"
                 placeholder="前端工程师 / 后端工程师 / 全栈工程师 / DevOps"
@@ -160,7 +160,7 @@ const UploadPage = () => {
                 name="job-description"
                 placeholder="Job Description"
                 id="job-description"
-                className="shadow-[inset_0_0_12px_0_rgba(36,99,235,0.2)] w-full rounded-2xl bg-white p-4 focus:outline-none"
+                className="w-full rounded-2xl bg-white p-4 shadow-[inset_0_0_12px_0_rgba(36,99,235,0.2)] focus:outline-none"
               />
             </div>
             <div className="flex w-full flex-col items-start gap-2">
@@ -170,7 +170,7 @@ const UploadPage = () => {
               <FileUploader onFileSelect={handleFileSelect} />
             </div>
             <button
-              className="bg-gradient-to-b from-[#8e98ff] to-[#606beb] shadow-[0px_74px_21px_0px_#6678ef00] w-full cursor-pointer rounded-full px-4 py-2 text-white"
+              className="w-full rounded-full bg-gradient-to-b from-[#8e98ff] to-[#606beb] shadow-[0px_74px_21px_0px_#6678ef00] cursor-pointer px-4 py-2 text-white"
               type="submit"
             >
               分析简历

@@ -11,4 +11,5 @@ const ResumePage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return <ResumeReview id={id} />;
 };
+
 export default ResumePage;
