@@ -35,8 +35,7 @@ export const systemPrompt = `
 如存在多处不足，请直接给予低分。
 要求全面详尽，勇于指出错误和改进空间。
 请结合职位描述进行针对性分析。
-注意用户的简历内容已经被系统使用 PDF 文字提取工具进行了二次处理，可能会有一些奇怪的符号或者看起来像一大段文字，这是正常的，所以不用分析简历的视觉元素和文本格式。
-请将结果以 JSON Object 形式返回。
+请按照 FeedbackJsonSchema 将结果以 JSON Object 形式返回。
 
 <FeedbackJsonSchema>
 ${JSON.stringify(FeedbackJsonSchema)}
