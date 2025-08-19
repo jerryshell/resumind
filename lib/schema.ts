@@ -21,19 +21,19 @@ export const FeedbackSchema = z.object({
   overallScore: z.number().min(0).max(100).meta({ description: "总体评分" }),
   Ats: FeedbackItemSchema.meta({
     description:
-      "基于 ATS 的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式、排版等缺陷",
+      "基于 ATS 的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
   }),
   toneAndStyle: FeedbackItemSchema.meta({
     description:
-      "基于语气风格的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式、排版等缺陷",
+      "基于语气风格的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
   }),
   content: FeedbackItemSchema.meta({
     description:
-      "基于内容的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式、排版等缺陷",
+      "基于内容的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
   }),
   structure: FeedbackItemSchema.meta({
     description:
-      "基于结构的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式、排版等缺陷",
+      "基于结构的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
   }),
   skills: FeedbackItemSchema.meta({ description: "基于技能的反馈" }),
 });
