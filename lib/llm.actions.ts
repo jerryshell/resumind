@@ -6,12 +6,12 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 
 const ai_provider = createOpenAI({
-  baseURL: process.env.NEXT_LLM_BASE_URL || "http://localhost:8080/v1",
-  apiKey: process.env.NEXT_LLM_API_KEY || "",
+  baseURL: process.env.LLM_BASE_URL || "http://localhost:8080/v1",
+  apiKey: process.env.LLM_API_KEY || "",
 });
 
 const ai_model = ai_provider.chat(
-  process.env.NEXT_LLM_MODEL || "models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf",
+  process.env.LLM_MODEL || "models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf",
 );
 
 export async function feedback(prompt: string) {

@@ -59,13 +59,13 @@ npm install
 
 ```env
 # LLM API
-NEXT_LLM_BASE_URL="http://localhost:8080/v1"
+LLM_BASE_URL="http://localhost:8080/v1"
 
 # API 密钥
-NEXT_LLM_API_KEY=""
+LLM_API_KEY=""
 
 # 模型名称
-NEXT_LLM_MODEL="models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf"
+LLM_MODEL="models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf"
 ```
 
 ### 启动应用
