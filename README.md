@@ -33,7 +33,7 @@ _Demo 实例受成本限制，目前无法稳定提供服务。如果这个项�
 本地运行兼容 OpenAI API 的 LLM 推理，下面以 `llama.cpp` 为例：
 
 ```bash
-./llama-server -fa -m models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf
+./llama-server -m models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf
 ```
 
 参数量太小的模型可能无法得到良好的结果，建议 8B 及以上

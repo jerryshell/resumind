@@ -59,23 +59,23 @@ const UploadPage = () => {
     setStatusText("转换图像...");
     const pdfToImageResult = await convertPdfToImage(file);
     if (!pdfToImageResult.file) {
-      setStatusText("错误：Failed to convert PDF to image");
+      setStatusText("错误：PDF 转换图像失败");
       return;
     }
 
     setStatusText("提取文字...");
     const pdfText = await convertPdfToText(file).catch(console.error);
     if (!pdfText) {
-      setStatusText("错误：Failed to convert PDF to text");
+      setStatusText("错误：PDF 转换图像文本");
       return;
     }
 
     const prompt = buildPrompt(jobTitle, jobDescription, pdfText);
 
     setStatusText("分析中，请耐心等待...");
-    const feedbackText = await feedback(prompt).catch(console.error);
-    if (!feedbackText) {
-      setStatusText("错误：Failed to analyze resume");
+    const feedbackResult = await feedback(prompt).catch(console.error);
+    if (!feedbackResult) {
+      setStatusText("错误：分析简历失败");
       return;
     }
 
@@ -86,7 +86,7 @@ const UploadPage = () => {
       companyName,
       jobTitle,
       jobDescription,
-      feedback: JSON.parse(feedbackText),
+      feedback: feedbackResult,
     };
 
     const resumes = getResumesFromLocalStorage();
@@ -114,6 +114,7 @@ const UploadPage = () => {
               alt="loading"
               width={100}
               height={100}
+              unoptimized
             />
           </>
         ) : (

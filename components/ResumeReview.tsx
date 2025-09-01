@@ -54,12 +54,12 @@ const ResumeReview = ({ id }: { id: string }) => {
           {resume ? (
             <div className="flex flex-col gap-8">
               <Summary feedback={resume.feedback} />
-              {resume.feedback.Ats &&
-                resume.feedback.Ats.score &&
-                resume.feedback.Ats.tips && (
+              {resume.feedback.ats &&
+                resume.feedback.ats.score &&
+                resume.feedback.ats.tips && (
                   <Ats
-                    score={resume.feedback.Ats.score}
-                    suggestions={resume.feedback.Ats.tips}
+                    score={resume.feedback.ats.score}
+                    suggestions={resume.feedback.ats.tips}
                   />
                 )}
               <Details feedback={resume.feedback} />
@@ -71,6 +71,7 @@ const ResumeReview = ({ id }: { id: string }) => {
               alt="loading"
               width={100}
               height={100}
+              unoptimized
             />
           )}
         </section>

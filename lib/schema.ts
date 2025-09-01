@@ -1,7 +1,11 @@
 import * as z from "zod";
 
 const FeedbackItemSchema = z.object({
-  score: z.number().min(0).max(100),
+  score: z
+    .number()
+    .min(0)
+    .max(100)
+    .meta({ description: "单项评分，范围：0~100" }),
   tips: z
     .array(
       z.object({
@@ -18,22 +22,22 @@ const FeedbackItemSchema = z.object({
 });
 
 export const FeedbackSchema = z.object({
-  overallScore: z.number().min(0).max(100).meta({ description: "总体评分" }),
-  Ats: FeedbackItemSchema.meta({
-    description:
-      "基于 ATS 的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
+  overallScore: z
+    .number()
+    .min(0)
+    .max(100)
+    .meta({ description: "总体评分，范围：0~100" }),
+  ats: FeedbackItemSchema.meta({
+    description: "基于 ATS(Applicant Tracking System) 的反馈",
   }),
   toneAndStyle: FeedbackItemSchema.meta({
-    description:
-      "基于语气风格的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
+    description: "基于语气风格的反馈",
   }),
   content: FeedbackItemSchema.meta({
-    description:
-      "基于内容的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
+    description: "基于内容的反馈",
   }),
   structure: FeedbackItemSchema.meta({
-    description:
-      "基于结构的反馈，注意用户的简历已经被系统使用 PDF 文字提取工具进行了二次处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷",
+    description: "基于结构的反馈",
   }),
   skills: FeedbackItemSchema.meta({ description: "基于技能的反馈" }),
 });

@@ -1,40 +1,33 @@
 "use server";
 
-import { FeedbackJsonSchema } from "./schema";
+import { FeedbackSchema } from "./schema";
 import { systemPrompt } from "./utils";
-import OpenAI from "openai";
+import { createOpenAI } from "@ai-sdk/openai";
+import { generateObject } from "ai";
 
-const client = new OpenAI({
+const ai_provider = createOpenAI({
   baseURL: process.env.NEXT_LLM_BASE_URL || "http://localhost:8080/v1",
   apiKey: process.env.NEXT_LLM_API_KEY || "",
 });
 
-export async function feedback(prompt: string) {
-  console.log({ systemPrompt, prompt });
+const ai_model = ai_provider.chat(
+  process.env.NEXT_LLM_MODEL || "models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf",
+);
 
-  const completion = await client.chat.completions.parse({
-    model:
-      process.env.NEXT_LLM_MODEL ||
-      "models/DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf",
+export async function feedback(prompt: string) {
+  console.log({ systemPrompt: systemPrompt, prompt });
+
+  const result = await generateObject({
+    model: ai_model,
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: prompt },
     ],
-    stream: false,
-    response_format: {
-      type: "json_schema",
-      json_schema: {
-        name: "feedback",
-        description: "resume feedback",
-        strict: true,
-        schema: FeedbackJsonSchema,
-      },
-    },
+    schemaName: "feedback",
+    schemaDescription: "resume feedback",
+    schema: FeedbackSchema,
   });
-  console.log({ completion });
+  console.log({ result });
 
-  const response = completion.choices[0].message.content;
-  console.log({ response });
-
-  return response;
+  return result.object;
 }

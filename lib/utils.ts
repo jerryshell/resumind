@@ -35,11 +35,11 @@ export const systemPrompt = `
 如存在多处不足，请直接给予低分。
 要求全面详尽，勇于指出错误和改进空间。
 请结合职位描述进行针对性分析。
-请按照 FeedbackJsonSchema 将结果以 JSON Object 形式返回。
-
-<FeedbackJsonSchema>
+注意：用户的简历内容已经被系统使用 PDF 文字提取工具进行了预处理，文本格式可能会很混乱，这是正常的，所以不用分析格式排版、阅读体验等缺陷。
+请使用以下 JSON Schema 进行响应：
+<JsonSchema>
 ${JSON.stringify(FeedbackJsonSchema)}
-</FeedbackJsonSchema>
+</JsonSchema>
 `;
 
 export const buildPrompt = (
