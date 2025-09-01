@@ -50,10 +50,8 @@ cd resumind
 使用 npm 安装项目依赖：
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 ```
-
-_为什么要使用 `--legacy-peer-deps`？这是 OpenAI 上游解决 Zod 4 冲突之前的绕过方法：<https://github.com/openai/openai-node/issues/1576>_
 
 ### 配置 LLM API
 
